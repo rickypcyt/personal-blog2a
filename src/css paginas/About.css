@@ -1,0 +1,14 @@
+/* About.css */
+
+.about-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    padding: 5vw;
+    text-align: center;
+}
+
+.about-content {
+    font-size: 25px;
+    color: #666;
+}

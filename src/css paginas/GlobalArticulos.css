@@ -1,0 +1,30 @@
+/* ArticuloGlobalStyles.css */
+
+.articulo-global-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.articulo-global-title {
+    font-size: 30px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+    /* Agrega un pequeño margen hacia abajo */
+    /* Cambia el color del título según tus preferencias */
+}
+
+.articulo-global-content h1 {
+    font-size: 20px;
+    color: #666;
+    margin-top: 25px;
+    font-weight: bold;
+    /* Añade un espacio entre el título y el contenido */
+}
+
+.articulo-global-container h2 {
+    font-weight: bold;
+    font-size: 24px;
+}

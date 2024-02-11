@@ -1,0 +1,14 @@
+/* Contact.css */
+
+.contact-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    padding: 5vw;
+    text-align: center;
+}
+
+.contact-info {
+    font-size: 25px;
+    color: #666;
+}
