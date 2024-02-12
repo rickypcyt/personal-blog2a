@@ -1,11 +1,11 @@
+// Navbar.js
 import React, { useState, useRef, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ handleFilter }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const location = useLocation();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -24,11 +24,21 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleCategoryClick = (category) => {
+    setIsDropdownOpen(false);
+    handleFilter(category); // Llama a la función de manejo del filtro y pasa la categoría seleccionada
+  };
+
+  const handleClearFilter = () => {
+    setIsDropdownOpen(false);
+    handleFilter(null); // Llama a la función de manejo para limpiar el filtro
+  };
+
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div>
-          <Link to="/" className="personal-blog">
+          <Link to="/" className="personal-blog" onClick={handleClearFilter}>
             Personal Blog
           </Link>
         </div>
@@ -42,12 +52,9 @@ const Navbar = () => {
           </Link>
           {isDropdownOpen && (
             <div className="dropdown-menu absolute bg-gray-800 py-2">
-              <Link to="/gym1" className="dropdown-item">
-                Gym
-              </Link>
-              <Link to="/gym2" className="dropdown-item">
-                Coding
-              </Link>
+              <button onClick={() => handleCategoryClick("Gym")} className="dropdown-item">Gym</button>
+              <button onClick={() => handleCategoryClick("Coding")} className="dropdown-item">Coding</button>
+              <button onClick={() => handleCategoryClick("Obsidian")} className="dropdown-item">Obsidian</button>
               {/* Add more categories as needed */}
             </div>
           )}

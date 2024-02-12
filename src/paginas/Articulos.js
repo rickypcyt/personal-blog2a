@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../css paginas/Articulos.css";
 import Articulo1 from "./Articulo1";
 import Articulo2 from "./Articulo2";
 import Articulo3 from "./Articulo3";
-import "../css paginas/Articulos.css";
 
 function obtenerPrimerParrafo(descripcion) {
   if (typeof descripcion === "string") {
@@ -21,47 +21,40 @@ function obtenerInformacionArticulo(ComponenteArticulo) {
   return { titulo, primerParrafo };
 }
 
-function Articulos() {
+function Articulos({ selectedCategory, handleClearFilter }) {
+  const listaArticulos = [
+    { componente: Articulo1, categoria: "Gym" },
+    { componente: Articulo2, categoria: "Coding" },
+    { componente: Articulo3, categoria: "Obsidian" },
+  ];
+
+  const articulosFiltrados = selectedCategory
+    ? listaArticulos.filter((articulo) => articulo.categoria === selectedCategory)
+    : listaArticulos;
+
+  const clearFilter = () => {
+    handleClearFilter(); // Llama a la función de manejo para limpiar el filtro
+  };
+
   return (
     <div className="articulos-container">
       <ul className="articulos-list">
-        <li>
-          <Link to="/articulo1" className="articulo-link">
-            <div className="articulo-box">
-              <h3 className="articulo-title">
-                {obtenerInformacionArticulo(Articulo1).titulo}
-              </h3>
-              <p className="articulo-content">
-                {obtenerInformacionArticulo(Articulo1).primerParrafo}
-              </p>
-            </div>
-          </Link>
-        </li>
-        <li>
-          <Link to="/articulo2" className="articulo-link">
-            <div className="articulo-box">
-              <h3 className="articulo-title">
-                {obtenerInformacionArticulo(Articulo2).titulo}
-              </h3>
-              <p className="articulo-content">
-                {obtenerInformacionArticulo(Articulo2).primerParrafo}
-              </p>
-            </div>
-          </Link>
-        </li>
-        <li>
-          <Link to="/articulo3" className="articulo-link">
-            <div className="articulo-box">
-              <h3 className="articulo-title">
-                {obtenerInformacionArticulo(Articulo3).titulo}
-              </h3>
-              <p className="articulo-content">
-                {obtenerInformacionArticulo(Articulo3).primerParrafo}
-              </p>
-            </div>
-          </Link>
-        </li>
+        {articulosFiltrados.map((articulo, index) => (
+          <li key={index}>
+            <Link to={`/articulo${index + 1}`} className="articulo-link">
+              <div className="articulo-box">
+                <h3 className="articulo-title">
+                  {obtenerInformacionArticulo(articulo.componente).titulo}
+                </h3>
+                <p className="articulo-content">
+                  {obtenerInformacionArticulo(articulo.componente).primerParrafo}
+                </p>
+              </div>
+            </Link>
+          </li>
+        ))}
       </ul>
+      <button onClick={clearFilter}>Clear Filter</button> {/* Botón para limpiar el filtro */}
     </div>
   );
 }

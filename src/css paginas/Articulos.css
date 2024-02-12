@@ -30,15 +30,19 @@
 .articulo-box:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
 }
 
-
-
+.articulo-box:hover h3 {
+    font-weight: bold
+}
 
 .articulo-title {
     margin-bottom: 10px;
     font-size: 18px;
 }
+
+
 
 .articulo-content {
     font-size: 14px;

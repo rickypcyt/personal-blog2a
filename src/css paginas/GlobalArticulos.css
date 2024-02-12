@@ -4,27 +4,50 @@
     max-width: 80%;
     margin: 0 auto;
     padding: 30px;
-    text-align: center;
+    text-align: left;
+    /* Cambiado a 'left' para alinear todo a la izquierda */
 }
 
 .articulo-global-title {
-    font-size: 30px;
+    font-size: 36px;
     color: #333;
     font-weight: bold;
     margin-bottom: 15px;
     /* Agrega un pequeño margen hacia abajo */
     /* Cambia el color del título según tus preferencias */
+    text-align: center;
+    /* Alinea el título principal al centro */
 }
 
-.articulo-global-content h1 {
-    font-size: 20px;
-    color: #666;
+.articulo-global-content-h1 {
+    font-size: 30px;
+    /* Tamaño fijo para todos los títulos h1 */
+    color: #000;
+    /* Color negro para el texto de los títulos h1 */
     margin-top: 25px;
+    margin-bottom: 10px;
+    /* Añade un margen inferior */
     font-weight: bold;
     /* Añade un espacio entre el título y el contenido */
+    text-align: left;
+    /* Asegura que los títulos h1 estén alineados a la izquierda */
+}
+
+.articulo-global-container p {
+    margin-bottom: 20px;
+    /* Agrega margen inferior entre los párrafos */
 }
 
 .articulo-global-container h2 {
     font-weight: bold;
     font-size: 24px;
+    margin-top: 20px;
+    /* Márgen superior */
+    margin-bottom: 10px;
+    /* Márgen inferior */
+}
+
+body {
+    background-color: #fffcf0;
+    /* Cambia el color de fondo a #fffcf0 */
 }
