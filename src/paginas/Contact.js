@@ -1,10 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 import "../css paginas/Contact.css"; // Importa los estilos CSS
 
 function Contact() {
   return (
     <div className="contact-container">
+      <Link to="/" className="back-link">
+        <FiArrowLeft /> Home
+      </Link>
+      
       <p className="contact-info">
+        
         You can reach me through the following social media platforms or contact
         methods:
         <br />

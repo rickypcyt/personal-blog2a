@@ -31,7 +31,12 @@ function App() {
           <Route path="/articulo3" element={<Articulo3 />} />
           <Route
             path="/"
-            element={<Articulos selectedCategory={selectedCategory} handleClearFilter={handleClearFilter} />}
+            element={
+              <Articulos
+                selectedCategory={selectedCategory}
+                handleClearFilter={handleClearFilter}
+              />
+            }
           />
         </Routes>
       </div>

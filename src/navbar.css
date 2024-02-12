@@ -1,7 +1,8 @@
 .personal-blog,
 .nav-link {
   color: white;
-  transition: color 0.3s ease, font-weight 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease, font-weight 0.3s ease, font-size 0.3s ease,
+    transform 0.3s ease;
 }
 
 .personal-blog {
@@ -9,7 +10,6 @@
   font-size: 24px;
   text-decoration: none;
   /* Evitar subrayado en los enlaces del navbar */
-
 }
 
 .nav-link {
@@ -20,7 +20,6 @@
   align-items: center;
   text-decoration: none;
   /* Evitar subrayado en los enlaces del navbar */
-
 }
 
 .nav-link:hover,
@@ -46,7 +45,7 @@
   top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
-  background-color: #1C1B1A;
+  background-color: #1c1b1a;
   padding: 20px;
   border-radius: 4px;
   display: flex;
@@ -67,7 +66,6 @@
   /* Evita que el texto se envuelva */
   text-decoration: none;
   /* Evitar subrayado en los enlaces del navbar */
-
 }
 
 .dropdown-item:last-child {
@@ -77,4 +75,40 @@
 
 .dropdown-item:hover {
   color: #ffd700;
+}
+
+/* Navbar.css */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* Asegura que el overlay esté sobre todos los demás elementos excepto el menú desplegable */
+  background-color: transparent;
+  /* Hace que el overlay sea transparente */
+  pointer-events: none;
+  /* Permite que los clics pasen a través del overlay */
+}
+
+.categories-bar {
+  display: flex;
+}
+
+.category {
+  background-color: #333;
+  color: #fff;
+  padding: 8px 16px;
+  margin-right: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.category:hover {
+  background-color: #555;
+}
+
+.category:focus {
+  outline: none;
 }
