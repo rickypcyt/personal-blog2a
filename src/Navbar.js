@@ -3,33 +3,47 @@ import { Link, NavLink } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = ({ handleFilter }) => {
+  const [categoryMenuOpen, setCategoryMenuOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const dropdownRef = useRef(null);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        // Si se hace clic fuera del menú desplegable, ciérralo
+        setCategoryMenuOpen(false);
+      }
+
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMenuOpen(false);
       }
     };
 
-    // Agregar el evento de clic fuera del menú cuando el menú está abierto
-    if (menuOpen) {
+    if (categoryMenuOpen || menuOpen) {
       document.addEventListener("click", handleOutsideClick);
     }
 
-    // Limpiar el event listener cuando el componente se desmonta o cuando el menú se cierra
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
-  }, [menuOpen]);
+  }, [categoryMenuOpen, menuOpen]);
 
   const handleCategoryClick = (category) => {
-    // Aplicar filtro en la página de inicio ("/")
     handleFilter(category);
-    // Cerrar el menú desplegable después de manejar la categoría clicada
-    setMenuOpen(false);
+    setCategoryMenuOpen(false);
   };
 
   const handleClearFilter = () => {
@@ -39,20 +53,19 @@ const Navbar = ({ handleFilter }) => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div>
-          {/* Enlace a la página de inicio */}
+        <div className="logo">
           <Link to="/" className="personal-blog" onClick={handleClearFilter}>
-            Personal Blog
+            My Blog
           </Link>
         </div>
-        <div className="relative" ref={dropdownRef}>
+        <div className="categories" ref={dropdownRef}>
           <button
             className="category-dropdown"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setCategoryMenuOpen(!categoryMenuOpen)}
           >
             Categories
           </button>
-          {menuOpen && (
+          {categoryMenuOpen && (
             <div className="dropdown-menu show">
               <button
                 onClick={() => handleCategoryClick("Gym")}
@@ -75,17 +88,31 @@ const Navbar = ({ handleFilter }) => {
             </div>
           )}
         </div>
-        <div className="flex space-x-4">
-          <div>
-            <NavLink to="/about" className="nav-link" activeClassName="active">
-              About
-            </NavLink>
-          </div>
-          <div>
-            <NavLink to="/contact" className="nav-link" activeClassName="active">
-              Contact
-            </NavLink>
-          </div>
+        <div className="menu" ref={menuRef}>
+          <button
+            className="category-dropdown"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Menu
+          </button>
+          {menuOpen && (
+            <div className="dropdown-menu show">
+              <NavLink
+                to="/about"
+                className="dropdown-item"
+                activeClassName="active"
+              >
+                About
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className="dropdown-item"
+                activeClassName="active"
+              >
+                Contact
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </nav>

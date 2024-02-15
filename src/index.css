@@ -20,8 +20,14 @@ code {
 
 .bg-gray-800 {
   background-color: #100f0f;
+  display: flex;
+  justify-content: center;
 }
 
 a {
   text-decoration: underline;
+}
+
+.p-4 {
+  padding: 14px;
 }

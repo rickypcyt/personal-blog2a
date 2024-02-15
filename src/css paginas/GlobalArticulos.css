@@ -3,7 +3,7 @@
 .articulo-global-container {
   max-width: 80%;
   margin: 0 auto;
-  padding: 30px;
+  padding: 42px;
   text-align: left;
   /* Cambiado a 'left' para alinear todo a la izquierda */
 }
@@ -84,4 +84,3 @@ body {
 .navigation-link-right {
   text-align: right;
 }
-

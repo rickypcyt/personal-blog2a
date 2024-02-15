@@ -13,11 +13,15 @@
 
 .nav-link,
 .category-dropdown {
-  margin-right: 15px;
-  margin-left: 15px;
   display: flex;
   align-items: center;
 }
+
+.categories,
+.menu {
+  position: relative;
+}
+
 
 @media screen and (max-width: 650px) {
 
@@ -25,11 +29,13 @@
   .nav-link,
   .category-dropdown {
     font-size: 18px;
+    white-space: nowrap;
+    margin-right: 10px;
   }
 }
 
+.personal-blog:hover,
 .nav-link:hover,
-.nav-link.active,
 .category-dropdown:hover,
 .category-dropdown.active {
   font-weight: bold;
@@ -37,8 +43,13 @@
 }
 
 .container {
-  max-width: 1490px;
-  margin: 0 10px;
+  max-width: 1414px;
+  display: flex;
+  /* Hacer el contenedor de la barra de navegación un contenedor flex */
+  justify-content: space-between;
+  /* Centrar los elementos del contenedor horizontalmente */
+  align-items: center;
+  /* Centrar los elementos verticalmente */
 }
 
 /* Estilos para el menú desplegable */
@@ -53,11 +64,9 @@
   border-radius: 4px;
   min-width: 200px;
   flex-direction: column;
-  /* Agregamos esta línea para que los elementos estén uno debajo del otro */
   z-index: 1000;
   /* Valor alto para superponer sobre el contenido detrás */
 }
-
 
 .show {
   display: flex;
@@ -80,4 +89,13 @@
 
 .dropdown-item:hover {
   color: #ffd700;
+}
+
+.logo {
+  padding-left: 6px;
+}
+
+.categories {
+  margin-right: 6%;
+
 }
