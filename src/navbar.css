@@ -1,29 +1,37 @@
-.personal-blog,
-.nav-link {
-  color: white;
-  transition: color 0.3s ease, font-weight 0.3s ease, font-size 0.3s ease,
-    transform 0.3s ease;
-}
+/* Navbar.css */
 
-.personal-blog {
+/* Estilos generales para enlaces */
+.personal-blog,
+.nav-link,
+.category-dropdown {
+  color: white;
   font-weight: 700;
   font-size: 24px;
   text-decoration: none;
-  /* Evitar subrayado en los enlaces del navbar */
+  transition: color 0.3s ease, font-weight 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
 }
 
-.nav-link {
-  font-size: 18px;
+.nav-link,
+.category-dropdown {
   margin-right: 15px;
   margin-left: 15px;
   display: flex;
   align-items: center;
-  text-decoration: none;
-  /* Evitar subrayado en los enlaces del navbar */
+}
+
+@media screen and (max-width: 650px) {
+
+  .personal-blog,
+  .nav-link,
+  .category-dropdown {
+    font-size: 18px;
+  }
 }
 
 .nav-link:hover,
-.nav-link.active {
+.nav-link.active,
+.category-dropdown:hover,
+.category-dropdown.active {
   font-weight: bold;
   transform: scale(1.05);
 }
@@ -33,14 +41,9 @@
   margin: 0 10px;
 }
 
-/* Added style to prevent movement on hover */
-.personal-blog:hover,
-.nav-link:hover {
-  line-height: inherit;
-}
-
-/* Added styles for the dropdown menu */
+/* Estilos para el menú desplegable */
 .dropdown-menu {
+  display: none;
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
@@ -48,10 +51,14 @@
   background-color: #1c1b1a;
   padding: 20px;
   border-radius: 4px;
-  display: flex;
-  flex-direction: column;
   min-width: 200px;
-  /* Cambiado a min-width */
+  flex-direction: column;
+  /* Agregamos esta línea para que los elementos estén uno debajo del otro */
+}
+
+
+.show {
+  display: flex;
 }
 
 .dropdown-item {
@@ -61,54 +68,14 @@
   transition: color 0.3s ease;
   text-align: center;
   border-bottom: 1px solid #555;
-  /* Agrega un borde inferior a cada elemento */
   white-space: nowrap;
-  /* Evita que el texto se envuelva */
   text-decoration: none;
-  /* Evitar subrayado en los enlaces del navbar */
 }
 
 .dropdown-item:last-child {
   border-bottom: none;
-  /* Elimina el borde inferior del último elemento */
 }
 
 .dropdown-item:hover {
   color: #ffd700;
-}
-
-/* Navbar.css */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  /* Asegura que el overlay esté sobre todos los demás elementos excepto el menú desplegable */
-  background-color: transparent;
-  /* Hace que el overlay sea transparente */
-  pointer-events: none;
-  /* Permite que los clics pasen a través del overlay */
-}
-
-.categories-bar {
-  display: flex;
-}
-
-.category {
-  background-color: #333;
-  color: #fff;
-  padding: 8px 16px;
-  margin-right: 8px;
-  border: none;
-  cursor: pointer;
-}
-
-.category:hover {
-  background-color: #555;
-}
-
-.category:focus {
-  outline: none;
 }

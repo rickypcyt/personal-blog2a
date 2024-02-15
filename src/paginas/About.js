@@ -7,7 +7,7 @@ function About() {
   return (
     <div className="about-container">
     <Link to="/" className="back-link">
-        <FiArrowLeft /> Back
+        <FiArrowLeft /> Home
       </Link>
       <p className="about-content">
         I'm a 20-year-old student of engineering with a passion for coding since
