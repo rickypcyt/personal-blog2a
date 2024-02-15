@@ -54,7 +54,7 @@ function Articulos({ selectedCategory, handleClearFilter }) {
           </li>
         ))}
       </ul>
-      {selectedCategory && <button onClick={clearFilter}>Clear Filter</button>}
+      {selectedCategory && <button className="clear-filter-button" onClick={clearFilter}>Clear Filter</button>}
     </div>
   );
 }

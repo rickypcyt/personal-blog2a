@@ -33,9 +33,6 @@
 
 }
 
-.articulo-box:hover h3 {
-    font-weight: bold
-}
 
 .articulo-title {
     margin-bottom: 10px;
@@ -46,4 +43,12 @@
 
 .articulo-content {
     font-size: 14px;
+}
+
+.clear-filter-button {
+    text-align: center;
+}
+
+.clear-filter-button:hover {
+    font-weight: bold;
 }

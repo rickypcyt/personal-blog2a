@@ -54,6 +54,8 @@
   min-width: 200px;
   flex-direction: column;
   /* Agregamos esta línea para que los elementos estén uno debajo del otro */
+  z-index: 1000;
+  /* Valor alto para superponer sobre el contenido detrás */
 }
 
 
