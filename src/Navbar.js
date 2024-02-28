@@ -64,14 +64,6 @@ const Navbar = ({ handleFilter }) => {
             My Blog
           </Link>
         </div>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-        </div>
         <div className="categories" ref={dropdownRef}>
           <button
             className="category-dropdown"
