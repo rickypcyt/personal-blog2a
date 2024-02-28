@@ -6,6 +6,7 @@ const Navbar = ({ handleFilter }) => {
   const [categoryMenuOpen, setCategoryMenuOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [searchTerm, setSearchTerm] = useState(""); // Nuevo estado para el término de búsqueda
   const dropdownRef = useRef(null);
   const menuRef = useRef(null);
 
@@ -50,6 +51,11 @@ const Navbar = ({ handleFilter }) => {
     handleFilter(null);
   };
 
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    // Aquí puedes llamar a una función de búsqueda o pasar el término de búsqueda al componente padre para filtrar
+  };
+
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -57,6 +63,14 @@ const Navbar = ({ handleFilter }) => {
           <Link to="/" className="personal-blog" onClick={handleClearFilter}>
             My Blog
           </Link>
+        </div>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
         </div>
         <div className="categories" ref={dropdownRef}>
           <button
