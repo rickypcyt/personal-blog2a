@@ -50,9 +50,6 @@
   /* Centrar los elementos del contenedor horizontalmente */
   align-items: center;
   /* Centrar los elementos verticalmente */
-  border-radius: 20px;
-  /* Ajusta el valor de acuerdo a tus preferencias */
-  overflow: hidden;
 }
 
 /* Estilos para el menú desplegable */
